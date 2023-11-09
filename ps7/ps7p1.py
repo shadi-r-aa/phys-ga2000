@@ -64,10 +64,11 @@ def brent(f, a, b, tol=1e-9, max_iter=1000):
     raise Exception("Doesn't converge within tolerance.")
 
     
-def f(x):
-   return np.exp(x)*(x-0.3)
-myimplementation = brent(f, 0, 1)
-scipyimplementation = optimize.brentq(f, 0, 1)
+def g(x):
+    return np.exp(x)*(x-0.3)*(x+1.7)
+
+myimplementation = brent(g, 0, 1)
+scipyimplementation = optimize.brentq(g, 0, 1)
 print("Minimum from my implementation:", myimplementation)
 print("Minimum from scipy:", scipyimplementation)
     
